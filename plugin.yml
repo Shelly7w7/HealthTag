@@ -1,0 +1,6 @@
+name: HealthTag
+version: "1.0.0"
+author: Shelly7w7
+main: shelly7w7\HealthTag\Loader
+description: "It will show the health of player above the head."
+api: [3.0.0]

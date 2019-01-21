@@ -1,0 +1,13 @@
+#|  |  |  /  _] /    || |   |      ||  |  |    |      | /    | /    |
+#|  |  | /  [_ |  o  || |   |      ||  |  |    |      ||  o  ||   __|
+#|  _  ||    _]|     || |___|_|  |_||  _  |    |_|  |_||     ||  |  |
+#|  |  ||   [_ |  _  ||     | |  |  |  |  |      |  |  |  _  ||  |_ |
+#|  |  ||     ||  |  ||     | |  |  |  |  |      |  |  |  |  ||     |
+#|__|__||_____||__|__||_____| |__|  |__|__|      |__|  |__|__||___,_|                                                                   
+# Hello everyone! welcome to the small but worthy configuration of HealthTah.
+# have an suggestion? Open an issue on the github and I'll try my best to add it as soon as possible!
+
+# Use {health} to show the player's health and {maxhealth} to show the player's max health!
+# Use '§' for colors.
+
+tag-format: "{health} HP / {maxhealth} HP"
