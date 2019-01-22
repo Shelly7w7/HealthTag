@@ -1,10 +1,8 @@
 # InformationX
 A profile/Information GUI plugin by Shelly7w7!
-
 | HitCount | Poggit |
 |:--:|:--:|
-[![HitCount](http://hits.dwyl.io/Shelly7w7/InformationX.svg)](http://hits.dwyl.io/Shelly7w7/InformationX)
-|[![Poggit-CI](https://poggit.pmmp.io/ci.shield/Shelly7w7/InformationX/InformationX)](https://poggit.pmmp.io/ci/Shelly7w7/InformationX/InformationX)
+[![HitCount](http://hits.dwyl.io/Shelly7w7/InformationX.svg)](http://hits.dwyl.io/Shelly7w7/InformationX)|[![Poggit-CI](https://poggit.pmmp.io/ci.shield/Shelly7w7/InformationX/InformationX)](https://poggit.pmmp.io/ci/Shelly7w7/InformationX/InformationX)
 
 ## Where to download a compiled version?
 
