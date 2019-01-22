@@ -1,5 +1,6 @@
 # InformationX
 A profile/Information GUI plugin by Shelly7w7!
+
 | HitCount | Poggit |
 |:--:|:--:|
 [![HitCount](http://hits.dwyl.io/Shelly7w7/InformationX.svg)](http://hits.dwyl.io/Shelly7w7/InformationX)
