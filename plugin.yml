@@ -1,5 +1,5 @@
 name: HealthTag
-version: 1.1.0
+version: 1.1.1
 author: Shelly7w7
 main: shelly7w7\HealthTag\Main
 description: "It will show the health of player above the head."
