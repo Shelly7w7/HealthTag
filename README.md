@@ -18,6 +18,10 @@ After downloading the compiled version from poggit, simply put the file in your 
 Basically It shows the players Health above his/Her head (Below NameTag). 
 You can customize it through the config.yml
 
+### How to configure?
+
+You can configure the formats etc. in the config directly or through the command in-game.
+
 ## Suggestions and Issues
 
 You can simply open an issue if you want to suggest anything.
