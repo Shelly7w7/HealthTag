@@ -4,13 +4,15 @@
 #|  |  ||   [_ |  _  ||     | |  |  |  |  |      |  |  |  _  ||  |_ |
 #|  |  ||     ||  |  ||     | |  |  |  |  |      |  |  |  |  ||     |
 #|__|__||_____||__|__||_____| |__|  |__|__|      |__|  |__|__||___,_|                                                                   
-# Hello everyone! welcome to the small but worthy configuration of HealthTah.
-# have an suggestion? Open an issue on the github and I'll try my best to add it as soon as possible!
-# It's not confirmed if this plugin supports and forks or spoons, It is recommended to use on PocketMine-MP!
-
+# Hello everyone! welcome to the small but worthy configuration of HealthTag.
+# Have a suggestion? Open an issue on the github and I'll try my best to add it or fix it as soon as possible!
+# It's not confirmed if this plugin supports the forks or spoons of PMMP, It is recommended to use on PocketMine-MP!
+# It's also not confirmed if it'll work with any nametag formating plugin, It only works on purechat and on vanilla nametags.
 # Use {health} to show the player's health and {maxhealth} to show the player's max health!
 # Use '§' for colors.
 
-tag-format: "{health} HP / {maxhealth} HP"
-
+# Types available: "bar" or "custom".
+type: "custom"
+# Input the values for the custom type.
+customformat: "{health}/{maxhealth}"
 # Enjoy the plugin!

@@ -16,13 +16,8 @@ class Main extends PluginBase{
 
 	public function onEnable() : void{
 		self::$instance = $this;
-		@mkdir($this->getDataFolder());
-		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+        $this->getServer()->getCommandMap()->register("healthtag", new HealthTagCommand($this));
 		$this->getScheduler()->scheduleRepeatingTask(new TagTask(), 10);
-	}
-
-	public function getHealthTagConfig() : Config{
-		return $this->config;
 	}
 
 	public static function getInstance() : self{
