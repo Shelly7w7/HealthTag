@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace shelly7w7\HealthTag;
 
 use pocketmine\Player;
-use jojoe77777\FormAPI\CustomForm;
+use shelly7w7\HealthTag\FormAPI\CustomForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
@@ -76,7 +76,7 @@ class HealthTagCommand extends Command
             }
         });
         $form->setTitle("HealthTag");
-        $form->addInput("Set the format for custom type in the following input. Use {health} or {maxhealth} to show the health.", "E.G '{health}HP/{maxhealth}HP'");
+        $form->addInput("Set the format for custom type in the following input. Use {health} or {maxhealth} to show the health.", "E.G {health}HP/{maxhealth}HP", Main::getInstance()->getConfig()->get("customformat"));
         $form->addLabel("Now, to proceed and save your new format proceed by tapping/clicking 'submit' or cancel the process by exiting the UI.");
         $form->sendToPlayer($sender);
     }
