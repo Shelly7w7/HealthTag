@@ -20,7 +20,7 @@ You can customize it through the config.yml
 
 ### How to configure?
 
-You can configure the formats etc. in the config directly or through the command in-game.
+You can configure the formats etc. in the config directly or through the command in-game!
 
 ## Suggestions and Issues
 
