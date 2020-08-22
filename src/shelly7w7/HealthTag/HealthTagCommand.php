@@ -1,15 +1,18 @@
 <?php
 declare(strict_types=1);
+
 namespace shelly7w7\HealthTag;
 
+use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\Player;
+use pocketmine\plugin\Plugin;
 use shelly7w7\HealthTag\FormAPI\CustomForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 use function implode;
 
-class HealthTagCommand extends Command
+class HealthTagCommand extends Command implements PluginIdentifiableCommand
 {
 
     /** @var Main */
@@ -36,7 +39,7 @@ class HealthTagCommand extends Command
         if ($action === "help") {
             $sender->sendMessage(TextFormat::RED . "/healthtag help >" . TextFormat::YELLOW . " Lists all available commands." . TextFormat::EOL . TextFormat::RED . "/healhtag settype [bar/custom] >" . TextFormat::YELLOW . "  Set's the health format type." . TextFormat::EOL . TextFormat::RED . "/healthtag setcustomformat [format] >" . TextFormat::YELLOW . "  Set's format for custom type. Use {maxhealth} and/or {health}." . TextFormat::EOL . TextFormat::RED . "/healthtag reload >" . TextFormat::YELLOW . "  Reload configuration file without restarting the server.");
         } else if ($action === "settype") {
-            if(empty($args[1])) {
+            if (empty($args[1])) {
                 $sender->sendMessage(TextFormat::RED . "/healthtag settype" . TextFormat::YELLOW . " bar/custom");
             } else if ($args[1] === "bar") {
                 Main::getInstance()->getConfig()->set("type", "bar");
@@ -61,7 +64,7 @@ class HealthTagCommand extends Command
         } else if ($action === "reload") {
             Main::getInstance()->getConfig()->reload();
             $sender->sendMessage(TextFormat::RED . "Successfully reloaded configuration file.");
-        }else{
+        } else {
             $sender->sendMessage(TextFormat::RED . "Invalid arguments," . TextFormat::YELLOW . "  use '/healthtag help' for more information.");
         }
     }
@@ -79,5 +82,13 @@ class HealthTagCommand extends Command
         $form->addInput("Set the format for custom type in the following input. Use {health} or {maxhealth} to show the health.", "E.G {health}HP/{maxhealth}HP", Main::getInstance()->getConfig()->get("customformat"));
         $form->addLabel("Now, to proceed and save your new format proceed by tapping/clicking 'submit' or cancel the process by exiting the UI.");
         $form->sendToPlayer($sender);
+    }
+
+    /**
+     * @return Main|Plugin $plugin
+     */
+    public function getPlugin(): Plugin
+    {
+        return $this->plugin;
     }
 }
