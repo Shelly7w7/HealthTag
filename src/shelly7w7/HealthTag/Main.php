@@ -11,7 +11,7 @@ class Main extends PluginBase
 {
 
     /** @var Config $config */
-    protected $config;``
+    protected $config;
     /** @var self $instance */
     protected static $instance;
 
