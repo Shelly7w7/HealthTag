@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace shelly7w7\HealthTag;
 
-use pocketmine\command\PluginIdentifiableCommand;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use shelly7w7\HealthTag\FormAPI\CustomForm;
 use pocketmine\command\Command;
@@ -12,7 +11,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 use function implode;
 
-class HealthTagCommand extends Command implements PluginIdentifiableCommand
+class HealthTagCommand extends Command
 {
 
     /** @var Main */
@@ -54,7 +53,7 @@ class HealthTagCommand extends Command implements PluginIdentifiableCommand
             }
         } else if ($action === "setcustomformat") {
             if (empty($args[1])) {
-                $this->setCustomFormat($sender->getServer()->getPlayer($sender->getName()));
+                $this->setCustomFormat($sender->getServer()->getPlayerByPrefix($sender->getName()));
             } else {
                 array_shift($args);
                 Main::getInstance()->getConfig()->set("customformat", implode(" ", $args));
@@ -81,7 +80,7 @@ class HealthTagCommand extends Command implements PluginIdentifiableCommand
         $form->setTitle("HealthTag");
         $form->addInput("Set the format for custom type in the following input. Use {health} or {maxhealth} to show the health.", "E.G {health}HP/{maxhealth}HP", Main::getInstance()->getConfig()->get("customformat"));
         $form->addLabel("Now, to proceed and save your new format proceed by tapping/clicking 'submit' or cancel the process by exiting the UI.");
-        $form->sendToPlayer($sender);
+        $sender->sendForm($form);
     }
 
     /**

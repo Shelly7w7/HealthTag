@@ -1,6 +1,10 @@
 name: HealthTag
-version: 2.0.2
+version: 2.1.2
 author: Shelly7w7
 main: shelly7w7\HealthTag\Main
 description: "It will show the health of player above the head."
-api: [3.0.0]
+api: [4.0.0]
+permissions:
+  healthtag.configure:
+    default: op
+

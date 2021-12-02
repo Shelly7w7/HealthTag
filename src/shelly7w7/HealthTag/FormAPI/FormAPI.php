@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace shelly7w7\HealthTag\FormAPI;
 
@@ -9,12 +9,14 @@ use pocketmine\plugin\PluginBase;
 class FormAPI extends PluginBase{
 
     /**
+     * @param callable $function
+     *
+     * @return CustomForm
      * @deprecated
      *
-     * @param callable|null $function
-     * @return CustomForm
      */
-    public function createCustomForm(?callable $function = null) : CustomForm {
+    public function createCustomForm(callable $function = null) : CustomForm{
         return new CustomForm($function);
     }
+
 }
