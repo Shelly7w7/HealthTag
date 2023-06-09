@@ -19,42 +19,20 @@ class EventListener implements Listener {
 	}
 
 	public function onPlayerJoin(PlayerJoinEvent $event): void {
-		$entity = $event->getPlayer();
-
-		if(Main::getInstance()->getConfig()->get("type") === "custom") {
-			$entity->setScoreTag(str_replace(["{health}", "{maxhealth}"], [$entity->getHealth(), $entity->getMaxHealth()], Main::getInstance()->getConfig()->getNested("customformat")));
-		} else if(Main::getInstance()->getConfig()->get("type") === "bar") {
-			$entity->setScoreTag(str_repeat("§a|", (int)round($entity->getHealth(), 0)) . str_repeat("§c|", (int)round($entity->getMaxHealth() - $entity->getHealth(), 0)));
-		} else {
-			$entity->setScoreTag("Invalid type chosen for healthtag");
-		}
+		Main::getInstance()->updateScoreTag($event->getPlayer());
 	}
 
 	public function onEntityDamageEvent(EntityDamageEvent $event): void {
 		$entity = $event->getEntity();
-
 		if($entity instanceof Player) {
-			if(Main::getInstance()->getConfig()->get("type") === "custom") {
-				$entity->setScoreTag(str_replace(["{health}", "{maxhealth}"], [$entity->getHealth(), $entity->getMaxHealth()], Main::getInstance()->getConfig()->getNested("customformat")));
-			} else if(Main::getInstance()->getConfig()->get("type") === "bar") {
-				$entity->setScoreTag(str_repeat("§a|", (int)round($entity->getHealth(), 0)) . str_repeat("§c|", (int)round($entity->getMaxHealth() - $entity->getHealth(), 0)));
-			} else {
-				$entity->setScoreTag("Invalid type chosen for healthtag");
-			}
+			Main::getInstance()->updateScoreTag($entity);
 		}
 	}
 
 	public function onEntityRegainHealth(EntityRegainHealthEvent $event): void {
 		$entity = $event->getEntity();
-
 		if($entity instanceof Player) {
-			if(Main::getInstance()->getConfig()->get("type") === "custom") {
-				$entity->setScoreTag(str_replace(["{health}", "{maxhealth}"], [$entity->getHealth(), $entity->getMaxHealth()], Main::getInstance()->getConfig()->getNested("customformat")));
-			} else if(Main::getInstance()->getConfig()->get("type") === "bar") {
-				$entity->setScoreTag(str_repeat("§a|", (int)round($entity->getHealth(), 0)) . str_repeat("§c|", (int)round($entity->getMaxHealth() - $entity->getHealth(), 0)));
-			} else {
-				$entity->setScoreTag("Invalid type chosen for healthtag");
-			}
+			Main::getInstance()->updateScoreTag($entity);
 		}
 	}
 
