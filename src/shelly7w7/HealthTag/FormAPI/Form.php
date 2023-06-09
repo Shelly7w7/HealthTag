@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace shelly7w7\HealthTag\FormAPI;
 
@@ -11,47 +11,46 @@ abstract class Form implements IForm{
 
     /** @var array */
     protected $data = [];
-    /** @var callable */
+    /** @var callable|null */
     private $callable;
 
     /**
-     * @param callable $callable
+     * @param callable|null $callable
      */
-    public function __construct(?callable $callable){
+    public function __construct(?callable $callable) {
         $this->callable = $callable;
     }
 
     /**
-     * @param Player $player
-     *
+     * @deprecated
      * @see Player::sendForm()
      *
-     * @deprecated
+     * @param Player $player
      */
-    public function sendToPlayer(Player $player) : void{
+    public function sendToPlayer(Player $player) : void {
         $player->sendForm($this);
     }
 
-    public function handleResponse(Player $player, $data) : void{
+    public function getCallable() : ?callable {
+        return $this->callable;
+    }
+
+    public function setCallable(?callable $callable) {
+        $this->callable = $callable;
+    }
+
+    public function handleResponse(Player $player, $data) : void {
         $this->processData($data);
         $callable = $this->getCallable();
-        if($callable !== null){
+        if($callable !== null) {
             $callable($player, $data);
         }
     }
 
-    public function processData(&$data) : void{
+    public function processData(&$data) : void {
     }
 
-    public function getCallable() : ?callable{
-        return $this->callable;
-    }
-
-    public function setCallable(?callable $callable){
-        $this->callable = $callable;
-    }
-
-    public function jsonSerialize(){
+    public function jsonSerialize() : array{
         return $this->data;
     }
 }
