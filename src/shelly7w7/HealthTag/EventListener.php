@@ -19,20 +19,20 @@ class EventListener implements Listener {
 	}
 
 	public function onPlayerJoin(PlayerJoinEvent $event): void {
-		Main::getInstance()->updateScoreTag($event->getPlayer());
+		$this->plugin->updateScoreTag($event->getPlayer());
 	}
 
 	public function onEntityDamageEvent(EntityDamageEvent $event): void {
 		$entity = $event->getEntity();
 		if($entity instanceof Player) {
-			Main::getInstance()->updateScoreTag($entity);
+			$this->plugin->updateScoreTag($entity);
 		}
 	}
 
 	public function onEntityRegainHealth(EntityRegainHealthEvent $event): void {
 		$entity = $event->getEntity();
 		if($entity instanceof Player) {
-			Main::getInstance()->updateScoreTag($entity);
+			$this->plugin->updateScoreTag($entity);
 		}
 	}
 
