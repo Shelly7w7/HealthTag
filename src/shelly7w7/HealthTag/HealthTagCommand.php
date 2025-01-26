@@ -54,9 +54,8 @@ class HealthTagCommand extends Command {
 				$sender->sendMessage(TextFormat::RED . "Successfully changed the custom format for healthtag," . TextFormat::YELLOW . " reload the file to update the changes '/healthtag reload'.");
 			}
 		} else if($action === "reload") {
-			Main::getInstance()->getConfig()->setAll(Main::getInstance()->configdata);
-			Main::getInstance()->getConfig()->save();
 			Main::getInstance()->getConfig()->reload();
+			Main::getInstance()->configdata = Main::getInstance()->getConfig()->getAll();
 			$sender->sendMessage(TextFormat::RED . "Successfully reloaded configuration file.");
 		} else {
 			$sender->sendMessage(TextFormat::RED . "Invalid arguments," . TextFormat::YELLOW . "  use '/healthtag help' for more information.");
